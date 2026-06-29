@@ -56,3 +56,8 @@ function checkDraw()
     return true;
 }
 
+function switchPlayer()
+{
+    currPlayer = (currPlayer === "X")? "O" : "X";
+    status.innerText = `Player ${currPlayer}'s Turn!`;
+}
