@@ -102,3 +102,18 @@ function cellClick(event,index)
     switchPlayer();     
 
 }
+
+
+
+cells.forEach((cell,index)) =>
+{
+    cell.addEventListener("click",(event)=>
+    {
+        cellClick(event,index);
+    });
+})
+
+reset.addEventListener("click",() =>
+{
+    resetButton();
+})
