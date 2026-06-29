@@ -18,3 +18,21 @@ const winningCombos = [
 ];
 
 
+function checkWinner()
+{
+    for(let win of winningCombos)
+    {
+        const [a,b,c] = win;
+        if( board[a] != "" && board[a] === board[b] && board[b] === board[c])
+        {
+            status.innerText = `Player ${currPlayer} Wins!`;
+            gameActive = false;
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+
