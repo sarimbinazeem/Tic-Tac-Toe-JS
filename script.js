@@ -23,10 +23,8 @@ function checkWinner()
     for(let win of winningCombos)
     {
         const [a,b,c] = win;
-        if( board[a] != "" && board[a] === board[b] && board[b] === board[c])
+        if( board[a] !== "" && board[a] === board[b] && board[b] === board[c])
         {
-            status.innerText = `Player ${currPlayer} Wins!`;
-            gameActive = false;
             return true;
         }
     }
@@ -49,8 +47,6 @@ function checkDraw()
         }
     }
 
-    status.innerText = `Draw!`;
-    gameActive = false;
 
 
     return true;
@@ -84,7 +80,7 @@ function cellClick(event,index)
     }
 
     board[index] = currPlayer;
-    event.target.innerText = currPlayer;
+     clickedCell.innerText = currPlayer;
 
     if(checkWinner())
     {
@@ -105,15 +101,12 @@ function cellClick(event,index)
 
 
 
-cells.forEach((cell,index)) =>
+cells.forEach((cell,index) =>
 {
     cell.addEventListener("click",(event)=>
     {
         cellClick(event,index);
     });
-})
+});
 
-reset.addEventListener("click",() =>
-{
-    resetButton();
-})
+reset.addEventListener("click", resetButton);
