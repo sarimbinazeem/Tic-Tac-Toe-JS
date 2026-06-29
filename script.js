@@ -34,5 +34,25 @@ function checkWinner()
     return false;
 }
 
+function checkDraw()
+{
+    if(checkWinner())
+    {
+        return false;
+    }
 
+    for(let cell of board)
+    {
+        if(cell === "")
+        {
+            return false;
+        }
+    }
+
+    status.innerText = `Draw!`;
+    gameActive = false;
+
+
+    return true;
+}
 
