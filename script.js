@@ -61,3 +61,16 @@ function switchPlayer()
     currPlayer = (currPlayer === "X")? "O" : "X";
     status.innerText = `Player ${currPlayer}'s Turn!`;
 }
+
+function resetButton() {
+    board.fill("");
+
+    for (let cell of cells) 
+    {
+        cell.innerText = "";
+    }
+
+    currPlayer = "X";
+    gameActive = true;
+    status.innerText = `Player ${currPlayer}'s Turn!`;
+}
