@@ -74,3 +74,31 @@ function resetButton() {
     gameActive = true;
     status.innerText = `Player ${currPlayer}'s Turn!`;
 }
+
+function cellClick(event,index)
+{
+    const clickedCell = event.target;
+
+    if (!gameActive || clickedCell.innerText !== "") {
+        return;
+    }
+
+    board[index] = currPlayer;
+    event.target.innerText = currPlayer;
+
+    if(checkWinner())
+    {
+        status.innerText = `Player ${currPlayer} Wins!`;
+        gameActive = false;
+        return;
+    }
+    if (checkDraw())
+    {
+        status.innerText = "Draw!";
+        gameActive = false;
+        return;
+    }
+
+    switchPlayer();     
+
+}
